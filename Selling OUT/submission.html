@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submission - Mobile Phone Store</title>
+  <link href="CSS/cart.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header>
+    <img src="https://clipground.com/images/oneplus-logo-clipart-6.png" alt="OnePlus 10 Pro Logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html">Product</a></li>
+        <li><a href="index.html#contactForm">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section id="hero">
+    <h1>Thank You for Your Message</h1>
+    <p>We've received your submission and will get back to you soon.</p>
+    <a href="index.html#hero" class="cta-button">Back to Home</a>
+  </section>
+
+  <main>
+    <section id="submitted-data">
+      <h3>Your Submitted Data</h3>
+
+      <div class="data-item">
+        <p><span>Name:</span></p>
+      </div>
+
+      <div class="data-item">
+        <p><span>Email:</span></p>
+      </div>
+
+      <div class="data-item">
+        <p><span>Message:</span></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2023 MobileStore. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript to load submitted data from local storage -->
+  <script>
+    window.onload = function () {
+      let storedData = JSON.parse(localStorage.getItem('formData'));
+
+      if (storedData) {
+        document.getElementById('submitted-data').innerHTML = `
+                    <h3>Your Submitted Data</h3>
+                    <p><strong>Name:</strong> ${storedData.name}</p>
+                    <p><strong>Email:</strong> ${storedData.email}</p>
+                    <p><strong>Message:</strong> ${storedData.message}</p>
+                `;
+      } else {
+        document.getElementById('submitted-data').innerText = "No data found!";
+      }
+    }
+  </script>
+</body>
+
+</html>
