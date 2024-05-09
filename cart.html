@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Mobile Phone Store</title>
+  <!-- Include your CSS link here, if you have one -->
+  <link href="CSS/cart.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header>
+    <img src="https://clipground.com/images/oneplus-logo-clipart-6.png" alt="OnePlus 10 Pro Logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#hero">Product</a></li>
+        <li><a href="index.html#contactForm">Contact</a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <section id="hero">
+
+    <h1>Welcome To Your Inventory</h1>
+    <a href="index.html#hero" class="cta-button">Continue To Checkout</a>
+  </section>
+
+  <main>
+    <!-- Placeholder for the product -->
+    <section id="cart-product">
+      <!-- The details will be dynamically populated by JavaScript -->
+    </section>
+  </main>
+
+  <footer>
+    <!-- Modify the footer as needed to match the style of your other pages -->
+    <p>&copy; 2023 MobileStore. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript to load product details from local storage -->
+  <script>
+    window.onload = function () {
+      let product = JSON.parse(localStorage.getItem('selectedProduct'));
+
+      if (product) {
+        document.getElementById('cart-product').innerHTML = `
+                    <div class="product-photo">
+                        <img src="${product.image}" alt="${product.title}">
+                    </div>
+                    <div class="product-details">
+                        <h1 class="product-title">${product.title}</h1>
+                        <p class="product-price">${product.price}</p>
+                        <p class="product-description">${product.description}</p>
+                    </div>
+                `;
+      } else {
+        document.getElementById('cart-product').innerText = "Your cart is empty!";
+      }
+    }
+  </script>
+</body>
+
+</html>
